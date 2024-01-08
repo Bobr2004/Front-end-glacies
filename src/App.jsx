@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const url = {
-    post: "localhost:3000"
+    post: "localhost:3000/api/v2/post",
   }
    const [formData, setFormData] = useState({
       name: "",
@@ -20,14 +20,14 @@ function App() {
 
    const handleSubmit = (e) => {
       e.preventDefault();
-
-      // Sending JSON payload to "/api2/createUser" endpoint
       fetch(url.post, {
          method: "POST",
          headers: {
             "Content-Type": "application/json",
          },
          body: JSON.stringify(formData),
+      }).catch(err => {
+        console.log("Roblox")
       })
         //  .then((response) => response.json())
         //  .then((data) => {
