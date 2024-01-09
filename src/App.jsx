@@ -2,19 +2,21 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const url = {
-    post: "localhost:3000/api/v2/post",
-  }
+   const url = {
+      post: "localhost:3000/api/v2/post"
+   };
    const [formData, setFormData] = useState({
       name: "",
       email: "",
-      password: "",
+      password: ""
    });
+
+   const [songText, setSong] = useState("");
 
    const handleInputChange = (e) => {
       setFormData({
          ...formData,
-         [e.target.name]: e.target.value,
+         [e.target.name]: e.target.value
       });
    };
 
@@ -23,20 +25,20 @@ function App() {
       fetch(url.post, {
          method: "POST",
          headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
          },
-         body: JSON.stringify(formData),
-      }).catch(err => {
-        console.log("Roblox")
-      })
-        //  .then((response) => response.json())
-        //  .then((data) => {
-        //     console.log("Response from server:", data);
-        //     // Handle the response as needed
-        //  })
-        //  .catch((error) => {
-        //     console.error("Error sending data:", error);
-        //  });
+         body: JSON.stringify(formData)
+      }).catch((err) => {
+         console.log("Roblox");
+      });
+      //  .then((response) => response.json())
+      //  .then((data) => {
+      //     console.log("Response from server:", data);
+      //     // Handle the response as needed
+      //  })
+      //  .catch((error) => {
+      //     console.error("Error sending data:", error);
+      //  });
    };
 
    return (
@@ -69,6 +71,16 @@ function App() {
          <p className="read-the-docs">
             Create a new TradeX account or <a href="">Show some data</a>
          </p>
+         <div>
+            <button
+               onClick={async () => {
+                  setSong(songText.concat("bobr/"));
+               }}
+            >
+               generateText
+            </button>
+            <p>{songText}</p>
+         </div>
       </>
    );
 }
