@@ -1,39 +1,18 @@
 import { BrowserRouter, createBrowserRouter } from "react-router-dom";
-import Aboba from "./aboba.jsx";
+import Aboba from "./pageEdit.jsx";
+import AbobaN from "./page.jsx";
 
 const router = createBrowserRouter([
    {
       path: "/",
       element: (
-         <Aboba
-            {...{
-               styles: {
-                  backgroundColor: "lightblue",
-                  padding: "20px"
-               },
-               link: "/chlen"
-            }}
-         />
+         <AbobaN className="aboba"/>
       )
    },
    {
-      path: "/chlen",
+      path: "/admin",
       element: (
-         <Aboba
-            {...{
-               link: "/"
-            }}
-         />
-      )
-   },
-   {
-      path: "/chlen",
-      element: (
-         <Aboba
-            {...{
-               link: "/"
-            }}
-         />
+         <Aboba  className="aboba"/>
       )
    }
 ]);
